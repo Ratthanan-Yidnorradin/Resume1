@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Ratthanan Yidnorradin — Resume</title>
+<style>
+  :root{
+    --maroon:#7A1F2C;
+    --maroon-dark:#5A1520;
+    --purple:#5B2A86;
+    --gold:#E8A33D;
+    --ink:#1c1c1c;
+    --sidebar:#181113;
+    --line:#e9e2dc;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Segoe UI',Arial,Helvetica,sans-serif;
+    background:#f2ede8;
+    color:var(--ink);
+    display:flex;
+    justify-content:center;
+    padding:32px 12px;
+  }
+  .page{
+    width:1000px;
+    max-width:100%;
+    display:grid;
+    grid-template-columns:300px 1fr;
+    background:#fff;
+    box-shadow:0 20px 50px rgba(0,0,0,.18);
+  }
+
+  /* ===== SIDEBAR ===== */
+  .sidebar{
+    background:var(--sidebar);
+    color:#eee;
+    padding:40px 28px;
+    position:relative;
+  }
+  .sidebar::before{
+    content:"";
+    position:absolute; top:0; left:0; right:0; height:6px;
+    background:linear-gradient(90deg,var(--maroon) 0 34%, var(--purple) 34% 67%, var(--gold) 67% 100%);
+  }
+  .avatar{
+    width:170px;height:170px;border-radius:50%;
+    margin:10px auto 26px;
+    border:5px solid #fff;
+    background:conic-gradient(from 220deg, var(--maroon), var(--purple), var(--gold), var(--maroon));
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,.4);
+  }
+  .avatar span{
+    width:158px;height:158px;border-radius:50%;
+    background:var(--sidebar);
+    display:flex;align-items:center;justify-content:center;
+    font-size:44px;font-weight:800;letter-spacing:1px;
+    color:var(--gold);
+    font-family:Georgia,serif;
+  }
+  .portfolio-btn{
+    display:block;text-align:center;
+    background:var(--gold);
+    color:#241300;
+    font-weight:700;
+    padding:12px 10px;
+    border-radius:4px;
+    text-decoration:none;
+    margin-bottom:26px;
+    letter-spacing:.3px;
+  }
+  .sb-block{margin-bottom:26px;}
+  .sb-title{
+    background:var(--maroon);
+    color:#fff;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:1px;
+    padding:9px 12px;
+    margin-bottom:14px;
+    text-transform:uppercase;
+  }
+  .sb-item{font-size:13.5px;line-height:1.6;margin-bottom:10px;color:#dcdcdc;word-break:break-word;}
+  .sb-item b{display:block;color:#fff;font-size:12px;letter-spacing:.4px;text-transform:uppercase;margin-bottom:2px;}
+  .chip-wrap{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    background:#2a2226;
+    border:1px solid var(--purple);
+    color:#f1e6d8;
+    font-size:12px;
+    padding:6px 10px;
+    border-radius:16px;
+  }
+  .lang-row{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:8px;color:#dcdcdc;}
+  .lang-row b{color:#fff;}
+
+  /* ===== MAIN ===== */
+  .main{padding:44px 46px;}
+  .name{
+    font-size:44px;
+    font-weight:800;
+    line-height:1.05;
+    letter-spacing:1px;
+    font-family:Georgia,'Times New Roman',serif;
+  }
+  .name .first{color:var(--maroon);}
+  .name .last{color:var(--purple);}
+  .role{
+    font-size:18px;
+    letter-spacing:2px;
+    color:#555;
+    margin-top:8px;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+  .divider{
+    height:3px;
+    width:100%;
+    margin:18px 0 22px;
+    background:linear-gradient(90deg,var(--maroon),var(--purple) 55%,var(--gold));
+  }
+  .summary{
+    font-size:14.5px;
+    line-height:1.75;
+    color:#3a3a3a;
+    margin-bottom:8px;
+  }
+  .bullets{
+    list-style:none;
+    margin-top:14px;
+  }
+  .bullets li{
+    position:relative;
+    padding-left:20px;
+    font-size:14px;
+    line-height:1.7;
+    color:#3a3a3a;
+    margin-bottom:6px;
+  }
+  .bullets li::before{
+    content:"";
+    position:absolute;left:0;top:9px;
+    width:7px;height:7px;border-radius:50%;
+    background:var(--gold);
+  }
+
+  .section-title{
+    background:var(--maroon);
+    color:#fff;
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:1px;
+    padding:12px 20px;
+    margin:34px 0 20px;
+  }
+
+  .entry{
+    position:relative;
+    padding-left:26px;
+    margin-bottom:26px;
+    border-left:2px solid var(--gold);
+  }
+  .entry::before{
+    content:"";
+    position:absolute;left:-7px;top:2px;
+    width:12px;height:12px;border-radius:50%;
+    background:var(--purple);
+    border:2px solid #fff;
+    box-shadow:0 0 0 2px var(--purple);
+  }
+  .entry-head{
+    display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;
+    gap:6px 16px;
+  }
+  .entry-title{font-size:16.5px;font-weight:800;color:var(--ink);}
+  .entry-org{font-size:13.5px;color:#777;margin-top:2px;}
+  .entry-desc{font-size:14px;color:#3a3a3a;line-height:1.7;margin-top:8px;}
+
+  .skills-grid{
+    display:flex;flex-wrap:wrap;gap:10px;
+  }
+  .skill-pill{
+    background:#f4ece1;
+    border:1px solid var(--maroon);
+    color:var(--maroon-dark);
+    font-weight:600;
+    font-size:13px;
+    padding:8px 16px;
+    border-radius:20px;
+  }
+
+  @media (max-width:720px){
+    .page{grid-template-columns:1fr;}
+    .name{font-size:34px;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+    <div class="avatar"><span>KS</span></div>
+    <a class="portfolio-btn" href="#">View Portfolio</a>
+
+    <div class="sb-block">
+      <div class="sb-title">Contact</div>
+      <div class="sb-item">📞 +66 99357 1088</div>
+      <div class="sb-item">✉️ ratthanan.yi@mail.wu.ac.th</div>
+      <div class="sb-item">📍 Thailand</div>
+    </div>
+
+    <div class="sb-block">
+      <div class="sb-title">Software</div>
+      <div class="chip-wrap">
+        <span class="chip">Visual Studio Code</span>
+        <span class="chip">Arduino IDE</span>
+        <span class="chip">IntelliJ IDEA</span>
+      </div>
+    </div>
+
+    <div class="sb-block">
+      <div class="sb-title">Education</div>
+      <div class="sb-item">
+        <b>Walailak University</b>
+        Bachelor of Computer Engineering
+      </div>
+    </div>
+
+    <div class="sb-block">
+      <div class="sb-title">Languages</div>
+      <div class="lang-row"><span>🇹🇭 Thai</span></div>
+      <div class="lang-row"><span>🇺🇸 English</span></div>
+    </div>
+  </aside>
+
+  <!-- ===================== MAIN ===================== -->
+  <main class="main">
+    <h1 class="name">
+      <span class="first">RATTHANAN</span><br>
+      <span class="last">YIDNORRADIN</span>
+    </h1>
+    <div class="role">Web Development</div>
+    <div class="divider"></div>
+
+    <p class="summary">
+      Currently studying Computer Engineering at Walailak University, where hands-on coursework
+      and side projects have shaped my interest in building things that work end to end — from
+      hardware talking to sensors, up through databases, to a working web interface. I like
+      taking an idea apart to see how each layer fits together, then putting it back into
+      something functional.
+    </p>
+
+    <ul class="bullets">
+      <li>Comfortable moving between hardware-level and software-level problem solving.</li>
+      <li>Enjoys turning coursework concepts into small working prototypes.</li>
+      <li>Works well in team settings, especially on collaborative build projects.</li>
+      <li>Picks up new tools and frameworks quickly through self-study.</li>
+      <li>Drawn to the intersection of embedded systems, web development, and AI.</li>
+    </ul>
+
+    <div class="section-title">Work Experience</div>
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Computer Engineering Student</div>
+        <div class="entry-org">Student</div>
+      </div>
+      <div class="entry-desc">
+        I designed a queue reservation system for a bubble tea shop and also designed the MySQL management system.
+      </div>
+    </div>
+
+    <div class="section-title">Education</div>
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Bachelor of Computer Engineering</div>
+        <div class="entry-org">Walailak University, Thailand</div>
+      </div>
+    </div>
+
+    <div class="section-title">Skills</div>
+    <div class="skills-grid">
+      <span class="skill-pill">C Language</span>
+      <span class="skill-pill">Java Language</span>
+      <span class="skill-pill">Python Language</span>
+      <span class="skill-pill">MySQL</span>
+      <span class="skill-pill">Git</span>
+      <span class="skill-pill">GitHub</span>
+      <span class="skill-pill">Arduino IDE</span>
+      <span class="skill-pill">VS Code</span>
+    </div>
+  </main>
+</div>
+</body>
+</html>
